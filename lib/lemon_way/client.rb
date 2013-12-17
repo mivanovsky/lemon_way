@@ -344,7 +344,7 @@ module LemonWay
           []
         end
       end
-      
+
       # RefundMoneyIn : remboursement carte
       #
       #Avec la méthode « RefundMoneyIn », le système peut envoyer une demande de remboursement d’une acquisition carte. Les règles suivantes sont appliquées :
@@ -368,10 +368,13 @@ module LemonWay
       #  - :com [Number] Commission prélevée par la MARQUE BLANCHE. 0 dans ce cas, ex: 0.00
       #  - :msg [String] Commentaire de la demande, ex: Commande numéro 245
       #  - :status [String] Non utilisé dans le kit MARQUE BLANCHE
+      #
+      # NON DISPONIBLE CHEZ LEMONWAY
+      #
       define_query_method :refund_money_in, %i(transactionId), %i(comment amountToRefund) do |response|
         response[:trans][:hpay]
-      end      
-      
+      end
+
     end
     module WebMerchant
       include Base
